@@ -74,7 +74,25 @@ int main() {
 
 ```
 
-Here, each node is connected via a pointer, so multiple nodes connected are a linked list.
+### Java
+
+```java
+
+class Node {
+int data;
+Node next; // reference
+
+  Node(int d) {
+    data = d;
+    next = null;
+  }
+}
+
+
+```
+
+
+Here, each node is connected via a pointer/reference, so multiple nodes connected are a linked list.
 
 This is for understanding how would they work, in reality we work with 2 classes/struct.
  - `Node` → holding data & pointer
