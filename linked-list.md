@@ -27,6 +27,15 @@ Hence it is used in:
 
 It's essential in OS memory management but the latter are more noticable uses.
 
+## Types of Linked List
+
+The following are the types of linked-lists:
+- Single Linked List - basic, 1-directional
+- Double Linked List - 
+2-directional, each node points to the next as well as previous.
+- Circular Linked List - last node points to the first, effectivly making a circle...
+
+I will start with basic single linked list.
 
 
 ## Basic Code
