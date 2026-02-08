@@ -26,3 +26,50 @@ Hence it is used in:
 - history list
 
 It's essential in OS memory management but the latter are more noticable uses.
+
+
+
+## Basic Code
+
+### C++ 
+
+First lets start with node.
+
+```cpp
+
+// Node Class
+class Node {
+  int data;
+  Node* next;
+
+  Node(int data) {this->data=data;
+  next = nullptr;}
+
+};
+
+int main() {
+    Node* first = new Node(10);
+    Node* sec = new Node(11);
+    Node* third = new Node(12);
+    
+    // manual linking
+    first->next=sec;
+    sec->next=third;
+    // no linking for third as it is last
+    
+    // Accessing data through links
+    std::cout << "First: " << first->data << std::endl;
+    std::cout << "Second: " << first->next->data << std::endl;
+    std::cout << "Third: " << first->next->next->data << std::endl;
+}
+
+```
+
+Here, each node is connected via a pointer, so multiple nodes connected are a linked list.
+
+This is for understanding how would they work, in reality we work with 2 classes/struct.
+ - `Node` → holding data & pointer
+ - `LinkedList` → connected `Nodes` and able to do operations
+
+Learn about [LinkedList with operations](linked-list-operations.md] here.
+
