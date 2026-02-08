@@ -27,7 +27,7 @@ public:
     }
     
     // if not empty
-    Node* temp = nNode;
+    Node* temp = head;
     while(temp->next != nullptr) {
         temp = temp->next; // move the pointer
     }
@@ -35,11 +35,22 @@ public:
     temp->next=nNode;
   }
 
+
+  void display() {
+    Node* temp = head;
+    while(temp != nullptr) {
+      cout<<"VALUE: "<<temp->data<<endl;
+      temp = temp->next;
+    }
+  }
+
 };
 
 int main() {
     LinkedList l1;
     l1.append(10);
+    l1.append(12);
     l1.append(11);
-    l1.append(11);
+    
+    l1.display();
 }
