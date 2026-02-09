@@ -60,4 +60,58 @@ Now even though,i have made a linked list, we cannot do any basic operation like
   - `temp = temp->next`, move the node to next
 - `temp->next=nNode`, adding a pointer to the last node
 
+```structure
+
+temp → A → B → C → nullptr → adding value
+
+```
+
+### Displaying List
+
+To list all items in a linked list, we loop over it.
+
+```cpp
+  void display() {
+    Node* temp = head; // creating a node
+    while(temp != nullptr) { // a node of linked list exists
+      cout<<"VALUE: "<<temp->data<<endl; // get data of a node
+      temp = temp->next; // move to next node
+    }
+```
+
+
+### Removing Item
+
+In a singly linked list,
+- the only way to remove a node is to change the pointer that points to it
+
+So basically, we do not delete the last node rather remove the thing pointing to it.
+
+```cpp
+
+  void pop(){
+    if (head == nullptr) return; // if empty
+
+    if (head->next == nullptr){ // if only 1 value
+      delete head;
+      head = nullptr;
+      return;
+    }
+
+    Node* temp = head;
+
+    while(temp->next->next != nullptr) {
+      temp = temp->next;
+    }
+
+    delete temp->next;
+    temp->next=nullptr; // make the last node pointer to nullptr
+  }
+
+```
+
+The last node already points to `nullptr`.
+- By updating the second-last node’s next pointer to `nullptr`, we break the link to the last node, effectively removing the last node from the list.
+
+
 

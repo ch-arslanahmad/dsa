@@ -12,6 +12,8 @@ They are connected via pointers or references that each node posses.
 
 **Example:** a train (linked-list) has cars (node) which have passengers (data) and each car connects to the other car via hook (references).
 
+> [!important]
+> Singly linked lists are O(1) for insertion or deletion only when the node (or its previous node) is already known; otherwise traversal makes it O(n), never O(log n).
 
 ## Use Case
 

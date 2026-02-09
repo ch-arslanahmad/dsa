@@ -44,6 +44,25 @@ public:
     }
   }
 
+  void pop(){
+    if (head == nullptr) return; // if empty
+
+    if (head->next == nullptr){ // if only 1 value
+      delete head;
+      head = nullptr;
+      return;
+    }
+
+    Node* temp = head;
+
+    while(temp->next->next != nullptr) {
+      temp = temp->next;
+    }
+
+    delete temp->next;
+    temp->next=nullptr; // make the last node pointer to nullptr
+  }
+
 };
 
 int main() {
@@ -51,6 +70,8 @@ int main() {
     l1.append(10);
     l1.append(12);
     l1.append(11);
+
+    l1.pop();
     
-    l1.display();
+    l1.display(); // shows: 10,12
 }
