@@ -9,8 +9,7 @@ public:
   int data;
   Node* next;
 
-  Node(int data) {this->data=data;
-  next = nullptr;}
+  Node(int data) : data(data), next(nullptr) {}
 
 };
 
@@ -27,25 +26,24 @@ public:
 ## Basic Operations
 
 Now even though,i have made a linked list, we cannot do any basic operation like:
-- adding item (append)
-- removing item (pop)
-- update item
-- looping over item etc
-- insert at beginning (push)
-- delete at beginning (pop_front)
-- insert at position (insert)
-- delete at position (remove)
-- search
-- reverse
+- [x] adding item (append)
+- [x] removing item (pop)
+- [x] looping over item etc
+- [x] insert at beginning (push)
+- [x] delete at beginning (pop_front)
+- [x] insert at position (insert)
+- [x] delete at position (remove)
+- [ ] search
+- [ ] reverse
 
 > [!note]
 > If you can implement these 9 correctly, you fully understand singly linked lists.
 
 
-### Adding an Item (Append)
+### Adding an Item (push_front)
 
 ```cpp
-  void append(int data) {
+  void push_front(int data) {
     Node nNode = new Node(data); // creating an object to add
     
     // if empty
@@ -85,6 +83,36 @@ temp → A → B → C → nullptr = adding value
   nNode->next = head; // points to current head only
   head = nNode; // make the new Node the new head
   
+  }
+
+```
+
+
+### Add By Position (remove)
+
+```cpp
+
+  // insert at position (index-based)
+  void insert(int pos,int data) {
+    Node *nNode = new Node(data);
+
+    // replace with head
+    if (pos == 0) {
+      nNode->next = head;
+      head = nNode;
+      return;
+    }
+
+    Node *temp = head;
+
+    for (int i = 0; i < pos - 1 && temp != nullptr; i++) {
+      temp = temp->next;
+    }
+    if (temp == nullptr) return; // out of bounds
+
+    // replace with temp
+    nNode->next = temp->next;
+    temp->next = nNode;
   }
 
 ```
@@ -157,4 +185,55 @@ The last node already points to `nullptr`.
 
 ```
 
+### Remove By Position (remove)
 
+```cpp
+
+  void remove(int pos) {
+    if (head == nullptr) return;
+    
+    if(pos == 0) {
+      head = head->next;
+      return;
+    }
+    Node* temp = head;
+    Node* prev = nullptr;
+
+    for (int i = 0; i < pos - 1 && temp != nullptr; i++) {
+      prev = temp;
+      temp= temp->next;
+    }
+
+    if (temp == nullptr) return; // out of bounds
+
+    prev->next = temp->next;
+    delete temp;
+  
+  }
+
+```
+
+To remove a `Node` at position we need a previous.
+- when 0 index, simply move the pointer
+- when n index, then find `prev` and make it point to the next value, then delete the `temp` value.
+- if `temp` is `nullptr`, then invalid `pos` given.
+
+
+### Search
+
+
+```cpp
+
+  bool search(int data) {
+    Node *temp = head;
+    while (temp != nullptr) {
+      if (temp->data == data)
+        return true;
+      temp = temp->next;
+    }
+    return false;
+  }
+
+```
+
+Simply looping over linked list while using simple conditional.
