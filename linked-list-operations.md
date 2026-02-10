@@ -237,3 +237,82 @@ To remove a `Node` at position we need a previous.
 ```
 
 Simply looping over linked list while using simple conditional.
+
+
+### Reverse Linked List
+
+```cpp
+
+  void reverse() {
+    Node *current = head;
+    Node *prev = nullptr;
+    Node *next = nullptr;
+    while (current != nullptr) {
+      next = current->next; // initializes next
+      current->next = prev; // points current to previous (for reverse)
+
+      // moving the node position
+      prev = current; // move the prev
+      current = next; // move the current
+    }
+    head = prev;
+  }
+
+```
+
+The code is somewhat complex to comprehend at first, so we will se by iteration.
+
+- **Original List**
+
+```
+head -> 1 -> 2 -> 3 -> nullptr
+```
+
+#### Initial Pointers:
+
+```cpp
+current = head (1), prev = nullptr, next = nullptr
+```
+
+#### Iteration 1
+
+```cpp
+next = current->next (2)
+current->next = prev (nullptr)
+prev = current (1)
+current = next (2)
+```
+
+**List now:** `1 -> nullptr, 2 -> 3 -> nullptr`
+
+
+#### Iteration 2
+
+```cpp
+next = current->next (3)
+current->next = prev (1)
+prev = current (2)
+current = next (3)
+```
+
+**List now:** `2 -> 1 -> nullptr, 3 -> nullptr`
+
+
+#### Iteration 3
+
+```cpp
+next = current->next (nullptr)
+current->next = prev (2)
+prev = current (3)
+current = next (nullptr)
+```
+
+**Reversed List:** `head = prev -> 3 -> 2 -> 1 -> nullptr`
+
+
+
+> [!note]
+> The main idea to take things slowly, and divide solution into simpler parts for understanding for linked list.
+
+
+

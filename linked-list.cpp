@@ -138,6 +138,21 @@ public:
     }
     return false;
   }
+
+
+  void reverse() {
+    Node *current = head;
+    Node *prev = nullptr;
+    Node *next = nullptr;
+    while (current != nullptr) {
+      next = current->next;
+      current->next = prev;
+      prev = current;
+      current = next;
+    }
+    head = prev;
+  }
+  
 };
 
 int main() {
