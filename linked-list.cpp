@@ -35,6 +35,32 @@ public:
     temp->next=nNode;
   }
 
+  void push_front(int data) {
+  Node* nNode = new Node(data);
+
+  nNode->next = head;
+  head = nNode;
+  
+  }
+
+
+  // empty list, (head[10]), (head[10], [20], [30])
+  void pop_front(){
+    if (head == nullptr) return; // if empty
+
+    Node* temp = head; // temp = head[10] (same for both)
+
+    head = temp->next; // moved head forward, (to nul), (to 20).
+    delete temp; // removed temp value
+  }  
+
+
+  
+
+  
+  
+  }
+
 
   void display() {
     Node* temp = head;
@@ -44,7 +70,7 @@ public:
     }
   }
 
-  void pop(){
+  void pop_back(){
     if (head == nullptr) return; // if empty
 
     if (head->next == nullptr){ // if only 1 value

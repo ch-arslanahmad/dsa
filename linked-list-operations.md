@@ -27,14 +27,22 @@ public:
 ## Basic Operations
 
 Now even though,i have made a linked list, we cannot do any basic operation like:
-- adding item
-- removing item
-- search item
+- adding item (append)
+- removing item (pop)
 - update item
 - looping over item etc
+- insert at beginning (push)
+- delete at beginning (pop_front)
+- insert at position (insert)
+- delete at position (remove)
+- search
+- reverse
+
+> [!note]
+> If you can implement these 9 correctly, you fully understand singly linked lists.
 
 
-### Adding an Item
+### Adding an Item (Append)
 
 ```cpp
   void append(int data) {
@@ -62,9 +70,27 @@ Now even though,i have made a linked list, we cannot do any basic operation like
 
 ```structure
 
-temp → A → B → C → nullptr → adding value
+temp → A → B → C → nullptr = adding value
 
 ```
+
+
+### Adding an Item (push_front)
+
+```cpp
+
+  void push_front(int data) {
+  Node* nNode = new Node(data); // new Node
+
+  nNode->next = head; // points to current head only
+  head = nNode; // make the new Node the new head
+  
+  }
+
+```
+
+> [!important]
+> If everything is pointers, nothing is deleted unless you explicitly call delete.
 
 ### Displaying List
 
@@ -79,8 +105,10 @@ To list all items in a linked list, we loop over it.
     }
 ```
 
+We create a `temp` node, and move that temp node as long as the next node exists.
+- printing the data of each node, in each iteration.
 
-### Removing Item
+### Removing Item (pop_back)
 
 In a singly linked list,
 - the only way to remove a node is to change the pointer that points to it
@@ -89,7 +117,7 @@ So basically, we do not delete the last node rather remove the thing pointing to
 
 ```cpp
 
-  void pop(){
+  void pop_back(){
     if (head == nullptr) return; // if empty
 
     if (head->next == nullptr){ // if only 1 value
@@ -113,5 +141,20 @@ So basically, we do not delete the last node rather remove the thing pointing to
 The last node already points to `nullptr`.
 - By updating the second-last node’s next pointer to `nullptr`, we break the link to the last node, effectively removing the last node from the list.
 
+### Removing Item (pop_front)
+
+```cpp
+
+  // empty list, (head[10]), (head[10], [20], [30])
+  void pop_front(){
+    if (head == nullptr) return; // if empty
+
+    Node* temp = head; // temp = head[10] (same for both)
+
+    head = temp->next; // moved head forward, (to nul), (to 20).
+    delete temp; // removed temp value
+  }  
+
+```
 
 
