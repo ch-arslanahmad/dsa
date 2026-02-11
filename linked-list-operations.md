@@ -33,8 +33,8 @@ Now even though,i have made a linked list, we cannot do any basic operation like
 - [x] delete at beginning (pop_front)
 - [x] insert at position (insert)
 - [x] delete at position (remove)
-- [ ] search
-- [ ] reverse
+- [x] search
+- [x] reverse
 
 > [!note]
 > If you can implement these 9 correctly, you fully understand singly linked lists.
@@ -313,6 +313,11 @@ current = next (nullptr)
 
 > [!note]
 > The main idea to take things slowly, and divide solution into simpler parts for understanding for linked list.
+
+> [!important]
+> After learning single linked list, learn about:
+> - doubly linked list
+> - circular linked list
 
 
 

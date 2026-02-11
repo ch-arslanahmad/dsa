@@ -4,6 +4,10 @@ A Linked List is a data structure where elements (called nodes) are connected in
 - **Data** – the value it holds
 - **Pointer** – reference to the next node
 
+Each Linked List contains:
+- `head` - pointer to the first node 
+- `tail` - pointer to last node, .. (optional in SLL, recommended in DLL/CLL)
+
 Unlike arrays, the memory isn't contingous.
 
 The last node points to *null* signifying the endency of a list.
@@ -100,5 +104,5 @@ This is for understanding how would they work, in reality we work with 2 classes
  - `Node` → holding data & pointer
  - `LinkedList` → connected `Nodes` and able to do operations
 
-Learn about [LinkedList with operations](linked-list-operations.md] here.
+Learn about [LinkedList with operations](linked-list-operations.md) here.
 
