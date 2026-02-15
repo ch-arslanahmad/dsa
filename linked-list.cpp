@@ -59,7 +59,7 @@ public:
     Node *nNode = new Node(data);
 
     // replace with head
-    if (pos == 0) {
+    if (pos == 0 || !head) {
       nNode->next = head;
       head = nNode;
       return;
@@ -70,9 +70,10 @@ public:
     for (int i = 0; i < pos - 1 && temp != nullptr; i++) {
       temp = temp->next;
     }
-    if (temp == nullptr)
-      return; // out of bounds
-
+    if (temp == nullptr) {
+		delete nNode; // prevent memory leak
+		return; // out of bounds
+	}
     // replace with temp
     nNode->next = temp->next;
     temp->next = nNode;

@@ -10,6 +10,18 @@ Operations are same as single linked list, however implementation in code is dif
 
 All operations remain same, only difference is implementing `tail` pointer in code.
 
+
+> [!tip]
+> When dealing with double-linked list and doing an operation by position or index...write code for the folowing scenarios:
+> if list empty
+> - if `head == nullptr`
+> - if only 1 node
+> - insert/remove at beginning
+> - insert/remove in middle
+> - insert/remove  at end
+> - new node references and is being referenced by next and prev.
+> - deleting node is not being referenced & and the references are updated.
+
 ### Add Value (push_front)
 
 Like `push_front`,
