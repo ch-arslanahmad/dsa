@@ -1,0 +1,21 @@
+# Ignore extension-less files (keep directories)
+
+## 1. ignore all files
+*
+# 2. but keep files with extensions
+!*.*
+
+# 3. Ignore programming languages specific files
+
+# Python
+*.pyc # ignore .pyc files
+# Java
+*.class
+*.exe
+
+# 3. keep directories
+!*/
+
+# Ignore .vscode folder tho
+/.vscode/
+
