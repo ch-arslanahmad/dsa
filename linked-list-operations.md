@@ -120,6 +120,16 @@ temp → A → B → C → nullptr = adding value
 > [!important]
 > If everything is pointers, nothing is deleted unless you explicitly call delete.
 
+> [!tip]
+> When dealing with linked list and doing an operation by position or index...write code for the folowing scenarios:
+> if list empty
+> - if `head == nullptr`
+> - if only 1 node
+> - insert/remove at beginning
+> - insert/remove in middle
+> - insert/remove  at end
+
+
 ### Displaying List
 
 To list all items in a linked list, we loop over it.
