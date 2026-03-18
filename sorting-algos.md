@@ -103,6 +103,8 @@ For an array, `[1, 46, 5, 904, 62, 74]`.
 
 Final sorted: `[1, 5, 46, 62, 74, 904]` 
 
+> [!note]
+> To continue, learn about [heap sorting](heap-sort.md)
 
 
 ## 3. Practice Exercises
