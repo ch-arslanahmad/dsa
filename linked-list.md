@@ -10,7 +10,7 @@ Each Linked List contains:
 
 Unlike arrays, the memory isn't contingous.
 
-The last node points to *null* signifying the endency of a list.
+The last node points to *null* signifying the end of a list.
 
 They are connected via pointers or references that each node posses.
 
